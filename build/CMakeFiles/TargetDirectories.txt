@@ -1,0 +1,3 @@
+/Users/pietro/Documents/Projects/GBEmu/build/CMakeFiles/ALL_BUILD.dir
+/Users/pietro/Documents/Projects/GBEmu/build/CMakeFiles/ZERO_CHECK.dir
+/Users/pietro/Documents/Projects/GBEmu/build/core/src/CMakeFiles/GBEmuCore.dir

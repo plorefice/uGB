@@ -1,0 +1,761 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		42E55571936B4DF2B706B8A6 /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 0982C96FB18E4D70979C54EB /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				811B3A76A5044B65BC79F158 /* CMake Rules */,
+			);
+			dependencies = (
+				87FC7FA1660E441295CBAA73 /* PBXTargetDependency */,
+				97D1D7161B5D4FBC8F3D5CE0 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+		D68002C2B4064788992571F6 /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 1AEF31AB91584DB58E4F7C63 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				D044B4114932445EBACD1D27 /* CMake Rules */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		30F1CC405EB04ED588FE363E /* opcodes.c in Sources */ = {isa = PBXBuildFile; fileRef = BBC6DBBC7D134F7D8A733F36 /* opcodes.c */; settings = {COMPILER_FLAGS = ""; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0A0C6B2639AC4532A3EBC789 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D37E61DD4B6940B18F39A2B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D68002C2B4064788992571F6;
+			remoteInfo = ZERO_CHECK;
+		};
+		3F505D9132C042E3B4696E5E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D37E61DD4B6940B18F39A2B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D68002C2B4064788992571F6;
+			remoteInfo = ZERO_CHECK;
+		};
+		E6742F889B7C4FDE90114D30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D37E61DD4B6940B18F39A2B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 66B4B3215B274E97B6D58A43;
+			remoteInfo = GBEmuCore;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1701FA92399049D58F68DB5A /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; name = CMakeLists.txt; path = core/src/CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		17377BAB72364355B93FB8A9 /* libGBEmuCore.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; path = libGBEmuCore.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A8F55BA87E4476ABE64BA0E /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		3ECDEF9E347F401CB47630AC /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		782205D9847C47F28610BADE /* opcodes.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = opcodes.h; path = core/inc/opcodes.h; sourceTree = SOURCE_ROOT; };
+		9A3D53A91B04AEE00044CBE7 /* memory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = memory.h; path = core/inc/memory.h; sourceTree = "<group>"; };
+		BBC6DBBC7D134F7D8A733F36 /* opcodes.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = opcodes.c; path = core/src/opcodes.c; sourceTree = SOURCE_ROOT; };
+		CC554051C69A4B28A478461D /* processor.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = processor.h; path = core/inc/processor.h; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		357826C514C84C7592F5F84C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				6DDC363184774A158FAB5283 /* ALL_BUILD */,
+				85A251060A5D4F91A79CB831 /* ZERO_CHECK */,
+				5409778E443C4037895DB19F /* GBEmuCore */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		4F9836CE39CD4530AED9ADE0 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		5409778E443C4037895DB19F /* GBEmuCore */ = {
+			isa = PBXGroup;
+			children = (
+				A4AF7732CFAF462CAD9D0384 /* Source Files */,
+				B737F9C9AF9C4FC4947234D6 /* Header Files */,
+				1701FA92399049D58F68DB5A /* CMakeLists.txt */,
+			);
+			name = GBEmuCore;
+			sourceTree = "<group>";
+		};
+		6DDC363184774A158FAB5283 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				80111E926BF842D898D7C40F /* CMake Rules */,
+				1A8F55BA87E4476ABE64BA0E /* CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		7365CD035BD74EF4AAEBEEBD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		80111E926BF842D898D7C40F /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		85A251060A5D4F91A79CB831 /* ZERO_CHECK */ = {
+			isa = PBXGroup;
+			children = (
+				4F9836CE39CD4530AED9ADE0 /* CMake Rules */,
+				3ECDEF9E347F401CB47630AC /* CMakeLists.txt */,
+			);
+			name = ZERO_CHECK;
+			sourceTree = "<group>";
+		};
+		A4AF7732CFAF462CAD9D0384 /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				BBC6DBBC7D134F7D8A733F36 /* opcodes.c */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		A991A045E47345CAACC47976 = {
+			isa = PBXGroup;
+			children = (
+				357826C514C84C7592F5F84C /* Sources */,
+				7365CD035BD74EF4AAEBEEBD /* Resources */,
+				F6D0D05290C04880A8A51EA1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B737F9C9AF9C4FC4947234D6 /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				782205D9847C47F28610BADE /* opcodes.h */,
+				CC554051C69A4B28A478461D /* processor.h */,
+				9A3D53A91B04AEE00044CBE7 /* memory.h */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		F6D0D05290C04880A8A51EA1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				17377BAB72364355B93FB8A9 /* libGBEmuCore.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		66B4B3215B274E97B6D58A43 /* GBEmuCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8042E5A0786744B2875EDD3E /* Build configuration list for PBXNativeTarget "GBEmuCore" */;
+			buildPhases = (
+				BD4A1B9265FD4B53B519CE2E /* Sources */,
+				632410E129E942B599D83AD0 /* CMake PostBuild Rules */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E0DC2EB758C44B31A9CA488E /* PBXTargetDependency */,
+			);
+			name = GBEmuCore;
+			productName = GBEmuCore;
+			productReference = 17377BAB72364355B93FB8A9 /* libGBEmuCore.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D37E61DD4B6940B18F39A2B3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+			};
+			buildConfigurationList = 01267D571AE746EDA1D71428 /* Build configuration list for PBXProject "GBEmu" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A991A045E47345CAACC47976;
+			projectDirPath = ..;
+			projectRoot = "";
+			targets = (
+				42E55571936B4DF2B706B8A6 /* ALL_BUILD */,
+				D68002C2B4064788992571F6 /* ZERO_CHECK */,
+				66B4B3215B274E97B6D58A43 /* GBEmuCore */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		632410E129E942B599D83AD0 /* CMake PostBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PostBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/pietro/Documents/Projects/GBEmu/build/core/src -f /Users/pietro/Documents/Projects/GBEmu/build/core/src/CMakeScripts/GBEmuCore_postBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		811B3A76A5044B65BC79F158 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/pietro/Documents/Projects/GBEmu/build -f /Users/pietro/Documents/Projects/GBEmu/build/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		D044B4114932445EBACD1D27 /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/pietro/Documents/Projects/GBEmu/build -f /Users/pietro/Documents/Projects/GBEmu/build/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BD4A1B9265FD4B53B519CE2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30F1CC405EB04ED588FE363E /* opcodes.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		87FC7FA1660E441295CBAA73 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D68002C2B4064788992571F6 /* ZERO_CHECK */;
+			targetProxy = 3F505D9132C042E3B4696E5E /* PBXContainerItemProxy */;
+		};
+		97D1D7161B5D4FBC8F3D5CE0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 66B4B3215B274E97B6D58A43 /* GBEmuCore */;
+			targetProxy = E6742F889B7C4FDE90114D30 /* PBXContainerItemProxy */;
+		};
+		E0DC2EB758C44B31A9CA488E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D68002C2B4064788992571F6 /* ZERO_CHECK */;
+			targetProxy = 0A0C6B2639AC4532A3EBC789 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0A1FA5EEF3BD485CB611532E /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/pietro/Documents/Projects/GBEmu/build/lib;
+				DYLIB_COMPATIBILITY_VERSION = "";
+				DYLIB_CURRENT_VERSION = "";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					GBEmuCore_EXPORTS,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/pietro/Documents/Projects/GBEmu/arch,
+					/Users/pietro/Documents/Projects/GBEmu/core/inc,
+				);
+				INSTALL_PATH = /Users/pietro/Documents/Projects/GBEmu/build/lib;
+				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_STYLE = DYNAMIC;
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+					"-fPIC",
+				);
+				OTHER_LDFLAGS = (
+					"-dynamiclib",
+					"-Wl,-headerpad_max_install_names",
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = GBEmuCore;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/pietro/Documents/Projects/GBEmu/build/core/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		10D8207192F4409D82570395 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/pietro/Documents/Projects/GBEmu/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		14EAF1DC10194092A93ADD5A /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/pietro/Documents/Projects/GBEmu/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		18DDF26CC00B443E9C5230FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk;
+				SYMROOT = /Users/pietro/Documents/Projects/GBEmu/build/build;
+			};
+			name = Release;
+		};
+		2027A2FBEF3E45C0AEDC2D37 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk;
+				SYMROOT = /Users/pietro/Documents/Projects/GBEmu/build/build;
+			};
+			name = RelWithDebInfo;
+		};
+		348EC5A07BE844218A6827C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/pietro/Documents/Projects/GBEmu/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		61A79244E0A84134A9BC60BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk;
+				SYMROOT = /Users/pietro/Documents/Projects/GBEmu/build/build;
+			};
+			name = Debug;
+		};
+		693C54C993A84D26BBAF05DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/pietro/Documents/Projects/GBEmu/build/lib;
+				DYLIB_COMPATIBILITY_VERSION = "";
+				DYLIB_CURRENT_VERSION = "";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					GBEmuCore_EXPORTS,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/pietro/Documents/Projects/GBEmu/arch,
+					/Users/pietro/Documents/Projects/GBEmu/core/inc,
+				);
+				INSTALL_PATH = /Users/pietro/Documents/Projects/GBEmu/build/lib;
+				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_STYLE = DYNAMIC;
+				OTHER_CFLAGS = "   -fPIC  ";
+				OTHER_LDFLAGS = (
+					"-dynamiclib",
+					"-Wl,-headerpad_max_install_names",
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = GBEmuCore;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/pietro/Documents/Projects/GBEmu/build/core/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		70F592A3BA17431EB0EFA87D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/pietro/Documents/Projects/GBEmu/build/lib;
+				DYLIB_COMPATIBILITY_VERSION = "";
+				DYLIB_CURRENT_VERSION = "";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					GBEmuCore_EXPORTS,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/pietro/Documents/Projects/GBEmu/arch,
+					/Users/pietro/Documents/Projects/GBEmu/core/inc,
+				);
+				INSTALL_PATH = /Users/pietro/Documents/Projects/GBEmu/build/lib;
+				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_STYLE = DYNAMIC;
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+					"-fPIC",
+				);
+				OTHER_LDFLAGS = (
+					"-dynamiclib",
+					"-Wl,-headerpad_max_install_names",
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = GBEmuCore;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/pietro/Documents/Projects/GBEmu/build/core/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		A023AADA15A74E3D8A99F299 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/pietro/Documents/Projects/GBEmu/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		ABD4982FBABB4080A083D6B3 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk;
+				SYMROOT = /Users/pietro/Documents/Projects/GBEmu/build/build;
+			};
+			name = MinSizeRel;
+		};
+		B0D720F4ACBB4964B36CA87B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/pietro/Documents/Projects/GBEmu/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		CD40C6056C07431BA1E8DBA6 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/pietro/Documents/Projects/GBEmu/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		D071C5CB4C334BCA8F3ECBF6 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/pietro/Documents/Projects/GBEmu/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		E4EBE0F900DF453B99AB1144 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				INSTALL_PATH = "";
+				OTHER_CFLAGS = "  ";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/pietro/Documents/Projects/GBEmu/build;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		FFA9BA9C9EED41A187D48FEA /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = /Users/pietro/Documents/Projects/GBEmu/build/lib;
+				DYLIB_COMPATIBILITY_VERSION = "";
+				DYLIB_CURRENT_VERSION = "";
+				EXECUTABLE_PREFIX = lib;
+				EXECUTABLE_SUFFIX = .dylib;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'",
+					GBEmuCore_EXPORTS,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/pietro/Documents/Projects/GBEmu/arch,
+					/Users/pietro/Documents/Projects/GBEmu/core/inc,
+				);
+				INSTALL_PATH = /Users/pietro/Documents/Projects/GBEmu/build/lib;
+				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_STYLE = DYNAMIC;
+				OTHER_CFLAGS = (
+					"-DNDEBUG",
+					"-fPIC",
+				);
+				OTHER_LDFLAGS = (
+					"-dynamiclib",
+					"-Wl,-headerpad_max_install_names",
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = GBEmuCore;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/pietro/Documents/Projects/GBEmu/build/core/src;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01267D571AE746EDA1D71428 /* Build configuration list for PBXProject "GBEmu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61A79244E0A84134A9BC60BD /* Debug */,
+				18DDF26CC00B443E9C5230FF /* Release */,
+				ABD4982FBABB4080A083D6B3 /* MinSizeRel */,
+				2027A2FBEF3E45C0AEDC2D37 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		0982C96FB18E4D70979C54EB /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0D720F4ACBB4964B36CA87B /* Debug */,
+				E4EBE0F900DF453B99AB1144 /* Release */,
+				14EAF1DC10194092A93ADD5A /* MinSizeRel */,
+				D071C5CB4C334BCA8F3ECBF6 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		1AEF31AB91584DB58E4F7C63 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				348EC5A07BE844218A6827C0 /* Debug */,
+				10D8207192F4409D82570395 /* Release */,
+				A023AADA15A74E3D8A99F299 /* MinSizeRel */,
+				CD40C6056C07431BA1E8DBA6 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8042E5A0786744B2875EDD3E /* Build configuration list for PBXNativeTarget "GBEmuCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				693C54C993A84D26BBAF05DB /* Debug */,
+				70F592A3BA17431EB0EFA87D /* Release */,
+				FFA9BA9C9EED41A187D48FEA /* MinSizeRel */,
+				0A1FA5EEF3BD485CB611532E /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D37E61DD4B6940B18F39A2B3 /* Project object */;
+}
