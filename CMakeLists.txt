@@ -12,6 +12,7 @@ mark_as_advanced(VERSION_MAJOR VERSION_MINOR VERSION_PATCH)
 ### ----- Additional folders ----- ###
 
 set ( GBEMU_ARCH_INCLUDE "${PROJECT_SOURCE_DIR}/arch" )
+set ( GBEMU_CORE_INCLUDE "${PROJECT_SOURCE_DIR}/core/inc" )
 
 ### ----- Additional libraries ----- ###
 
@@ -33,3 +34,4 @@ endforeach( OUTPUTCONFIG CMAKE_CONFIGURATION_TYPES )
 # cause another cmake executable to run. The same process will walk through
 # the project's entire directory structure.
 add_subdirectory (core)
+add_subdirectory (test)
