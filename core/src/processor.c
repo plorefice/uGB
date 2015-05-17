@@ -9,32 +9,18 @@
 #include "processor.h"
 #include "opcodes.h"
 
+#include <stdio.h>
+
 
 void
 proc_init(processor * z80)
 {
-	word addr;
-
 	memory_init(&z80->MEM);
 
 	z80->hWFI = 0;
+	z80->IRQE = 0;
 
-	/* ----- BOOTSTRAP ----- */
-	/* setup PC and SP */
-	z80->PC = 0x100;
-	z80->SP = 0xFFFE;
-
-	/* zero VRAM content */
-	//for (addr = 0x9FFF; addr >= 0x8000; --addr)
-	//	memory_w8(&z80->MEM, addr, 0x00);
-
-	/* TODO: setup audio */
-
-	/* setup BG palette */
-	//memory_w8(&z80->MEM, 0xFF47, 0xFC);
-
-	/* TODO: load logo from cart */
-	/* TODO: scroll logo*/
+	z80->PC = 0x0;
 }
 
 void
@@ -42,8 +28,16 @@ proc_fetch(processor * z80)
 {
 	if (!z80->hWFI)
 	{
+		r16 prevPC = z80->PC;
 		opcode opc = memory_r8(&z80->MEM, z80->PC++);
+		r16 afterPC = z80->PC;
+
+		printf("%s\n", opcode_name(opc));
+
 		dispatch[opc](z80);
+
+		if (prevPC == 0xFE && afterPC == 0xFF)
+			z80->MEM.booting = false;
 	}
 }
 

@@ -30,7 +30,7 @@ int main(int argc, char * argv[])
 	proc_load_cart(&z80, &cart);
 
 	/* load rom */
-	fopen_s(&f, "custom_rom.gb", "rb");
+	fopen_s(&f, "cpu_instrs.gb", "rb");
 	fstat(_fileno(f), &fs);
 	fsize = fs.st_size;
 

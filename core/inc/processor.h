@@ -20,6 +20,7 @@ typedef struct {
 	bit Z, N, H, C;              ///< flag bits
 
 	bit hWFI;                    ///< halt until interrupt
+	bit IRQE;                    ///< interrupt enabled
 } processor;
 
 

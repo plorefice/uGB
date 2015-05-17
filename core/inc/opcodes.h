@@ -16,4 +16,6 @@ typedef void(*dispatch_t)(processor *);
 
 extern const dispatch_t dispatch[];
 
+const char * opcode_name(opcode opc);
+
 #endif /* _CORE__OPCODES_H_ */

@@ -12,15 +12,16 @@
 #include "types.h"
 
 typedef struct {
-	byte   BIOS [0x100];
 	byte * ROM_BNK_00;
 	byte * ROM_BNK_NN;
 	byte * VRAM;
-	byte * ERAM;
+	byte   ERAM [0x2000];
 	byte   WRAM [0x2000];
 	byte   OAM  [0xA0];
 	byte   IOP  [0x80];
 	byte   ZRAM [0x80];
+
+	bool   booting;
 } memory;
 
 void memory_init(memory * mem);
