@@ -33,5 +33,7 @@ typedef uint16_t r16;
 /* Instruction types */
 typedef uint8_t  opcode;
 
+typedef uint32_t clock;
+
 
 #endif /* _ARCH__TYPES_H_ */

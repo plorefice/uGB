@@ -21,6 +21,8 @@ typedef struct {
 
 	bit hWFI;                    ///< halt until interrupt
 	bit IRQE;                    ///< interrupt enabled
+
+	clock gClk;
 } processor;
 
 

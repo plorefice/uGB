@@ -19,6 +19,7 @@ proc_init(processor * z80)
 
 	z80->hWFI = 0;
 	z80->IRQE = 0;
+	z80->gClk = 0;
 
 	z80->PC = 0x0;
 }
