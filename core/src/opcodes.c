@@ -448,14 +448,14 @@ static void exec_CPH(processor * z80, r16 * reg, r8 op)
 
 static void exec_CALL(processor * z80)
 {
-	memory_w16(&z80->MEM, z80->SP - 2, z80->PC);
-	z80->PC = memory_r16(&z80->MEM, z80->PC);
+	memory_w16(z80->MEM, z80->SP - 2, z80->PC);
+	z80->PC = memory_r16(z80->MEM, z80->PC);
 	z80->SP -= 2;
 }
 
 static void exec_RET(processor * z80)
 {
-	z80->PC = memory_r16(&z80->MEM, z80->SP);
+	z80->PC = memory_r16(z80->MEM, z80->SP);
 	z80->SP += 2;
 }
 
@@ -471,7 +471,7 @@ static void exec_0x00 (processor * z80)
 static void exec_0x01 (processor * z80)
 {
     /* LD BC, d16 */
-	reg_loadHL(&z80->BC, memory_r16(&z80->MEM, z80->PC));
+	reg_loadHL(&z80->BC, memory_r16(z80->MEM, z80->PC));
 	z80->PC += 2;
 
 	z80->gClk += 12;
@@ -480,7 +480,7 @@ static void exec_0x01 (processor * z80)
 static void exec_0x02 (processor * z80)
 {
     /* LD (BC), A */
-    memory_w8(&z80->MEM, z80->BC, z80->AF >> 8);
+    memory_w8(z80->MEM, z80->BC, z80->AF >> 8);
 
 	z80->gClk += 8;
 }
@@ -512,7 +512,7 @@ static void exec_0x05(processor * z80)
 static void exec_0x06(processor * z80)
 {
 	/* LD B, d8 */
-	reg_loadH(&z80->BC, memory_r8(&z80->MEM, z80->PC));
+	reg_loadH(&z80->BC, memory_r8(z80->MEM, z80->PC));
 	z80->PC += 1;
 
 	z80->gClk += 8;
@@ -532,9 +532,9 @@ static void exec_0x07(processor * z80)
 static void exec_0x08(processor * z80)
 {
 	/* LD (a16), SP */
-	word addr = memory_r16(&z80->MEM, z80->PC);
+	word addr = memory_r16(z80->MEM, z80->PC);
 	z80->PC += 2;
-	memory_w16(&z80->MEM, addr, z80->SP);
+	memory_w16(z80->MEM, addr, z80->SP);
 
 	z80->gClk += 20;
 }
@@ -550,7 +550,7 @@ static void exec_0x09(processor * z80)
 static void exec_0x0A(processor * z80)
 {
 	/* LD A, (BC) */
-	reg_loadH(&z80->AF, memory_r8(&z80->MEM, z80->BC));
+	reg_loadH(&z80->AF, memory_r8(z80->MEM, z80->BC));
 
 	z80->gClk += 8;
 }
@@ -582,7 +582,7 @@ static void exec_0x0D(processor * z80)
 static void exec_0x0E(processor * z80)
 {
 	/* LD C, d8 */
-	reg_loadL(&z80->BC, memory_r8(&z80->MEM, z80->PC));
+	reg_loadL(&z80->BC, memory_r8(z80->MEM, z80->PC));
 	z80->PC += 1;
 
 	z80->gClk += 8;
@@ -610,7 +610,7 @@ static void exec_0x10(processor * z80)
 static void exec_0x11(processor * z80)
 {
 	/* LD DE, d16 */
-	reg_loadHL(&z80->DE, memory_r16(&z80->MEM, z80->PC));
+	reg_loadHL(&z80->DE, memory_r16(z80->MEM, z80->PC));
 	z80->PC += 2;
 
 	z80->gClk += 12;
@@ -619,7 +619,7 @@ static void exec_0x11(processor * z80)
 static void exec_0x12(processor * z80)
 {
 	/* LD (DE), A */
-	memory_w8(&z80->MEM, z80->DE, z80->AF >> 8);
+	memory_w8(z80->MEM, z80->DE, z80->AF >> 8);
 
 	z80->gClk += 8;
 }
@@ -651,7 +651,7 @@ static void exec_0x15(processor * z80)
 static void exec_0x16(processor * z80)
 {
 	/* LD D, d8 */
-	reg_loadH(&z80->DE, memory_r8(&z80->MEM, z80->PC));
+	reg_loadH(&z80->DE, memory_r8(z80->MEM, z80->PC));
 	z80->PC += 1;
 
 	z80->gClk += 8;
@@ -672,7 +672,7 @@ static void exec_0x17(processor * z80)
 static void exec_0x18(processor * z80)
 {
 	/* JR r8 */
-	s8 dsp = memory_r8(&z80->MEM, z80->PC);
+	s8 dsp = memory_r8(z80->MEM, z80->PC);
 	z80->PC += 1;
 
 	z80->PC += dsp;
@@ -691,7 +691,7 @@ static void exec_0x19(processor * z80)
 static void exec_0x1A(processor * z80)
 {
 	/* LD A, (DE) */
-	reg_loadH(&z80->AF, memory_r8(&z80->MEM, z80->DE));
+	reg_loadH(&z80->AF, memory_r8(z80->MEM, z80->DE));
 
 	z80->gClk += 8;
 }
@@ -722,7 +722,7 @@ static void exec_0x1D(processor * z80)
 static void exec_0x1E(processor * z80)
 {
 	/* LD E, d8 */
-	reg_loadL(&z80->DE, memory_r8(&z80->MEM, z80->PC));
+	reg_loadL(&z80->DE, memory_r8(z80->MEM, z80->PC));
 	z80->PC += 1;
 
 	z80->gClk += 8;
@@ -756,7 +756,7 @@ static void exec_0x20(processor * z80)
 static void exec_0x21(processor * z80)
 {
 	/* LD HL, d16 */
-	reg_loadHL(&z80->HL, memory_r16(&z80->MEM, z80->PC));
+	reg_loadHL(&z80->HL, memory_r16(z80->MEM, z80->PC));
 	z80->PC += 2;
 
 	z80->gClk += 12;
@@ -765,7 +765,7 @@ static void exec_0x21(processor * z80)
 static void exec_0x22(processor * z80)
 {
 	/* LD (HL+), A */
-	memory_w8(&z80->MEM, z80->HL, z80->AF >> 8);
+	memory_w8(z80->MEM, z80->HL, z80->AF >> 8);
 	z80->HL += 1;
 
 	z80->gClk += 8;
@@ -798,7 +798,7 @@ static void exec_0x25(processor * z80)
 static void exec_0x26(processor * z80)
 {
 	/* LD H, d8 */
-	reg_loadH(&z80->HL, memory_r8(&z80->MEM, z80->PC));
+	reg_loadH(&z80->HL, memory_r8(z80->MEM, z80->PC));
 	z80->PC += 1;
 
 	z80->gClk += 8;
@@ -865,7 +865,7 @@ static void exec_0x29(processor * z80)
 static void exec_0x2A(processor * z80)
 {
 	/* LD A, (HL+) */
-	reg_loadH(&z80->AF, memory_r8(&z80->MEM, z80->HL));
+	reg_loadH(&z80->AF, memory_r8(z80->MEM, z80->HL));
 	z80->HL += 1;
 
 	z80->gClk += 8;
@@ -898,7 +898,7 @@ static void exec_0x2D(processor * z80)
 static void exec_0x2E(processor * z80)
 {
 	/* LD L, d8 */
-	reg_loadL(&z80->HL, memory_r8(&z80->MEM, z80->PC));
+	reg_loadL(&z80->HL, memory_r8(z80->MEM, z80->PC));
 	z80->PC += 1;
 
 	z80->gClk += 8;
@@ -931,7 +931,7 @@ static void exec_0x30(processor * z80)
 static void exec_0x31(processor * z80)
 {
 	/* LD SP, d16 */
-	reg_loadHL(&z80->SP, memory_r16(&z80->MEM, z80->PC));
+	reg_loadHL(&z80->SP, memory_r16(z80->MEM, z80->PC));
 	z80->PC += 2;
 
 	z80->gClk += 12;
@@ -940,7 +940,7 @@ static void exec_0x31(processor * z80)
 static void exec_0x32(processor * z80)
 {
 	/* LD (HL-), A */
-	memory_w8(&z80->MEM, z80->HL, z80->AF >> 8);
+	memory_w8(z80->MEM, z80->HL, z80->AF >> 8);
 	z80->HL -= 1;
 
 	z80->gClk += 8;
@@ -957,9 +957,9 @@ static void exec_0x33(processor * z80)
 static void exec_0x34(processor * z80)
 {
 	/* INC (HL) */
-	byte B = memory_r8(&z80->MEM, z80->HL);
+	byte B = memory_r8(z80->MEM, z80->HL);
 	B += 1;
-	memory_w8(&z80->MEM, z80->HL, B);
+	memory_w8(z80->MEM, z80->HL, B);
 
 	z80->Z = (B == 0);
 	z80->N = 0;
@@ -971,9 +971,9 @@ static void exec_0x34(processor * z80)
 static void exec_0x35(processor * z80)
 {
 	/* DEC (HL) */
-	byte B = memory_r8(&z80->MEM, z80->HL);
+	byte B = memory_r8(z80->MEM, z80->HL);
 	B -= 1;
-	memory_w8(&z80->MEM, z80->HL, B);
+	memory_w8(z80->MEM, z80->HL, B);
 
 	z80->Z = (B == 0);
 	z80->N = 1;
@@ -985,7 +985,7 @@ static void exec_0x35(processor * z80)
 static void exec_0x36(processor * z80)
 {
 	/* LD (HL), d8 */
-	memory_w8(&z80->MEM, z80->HL, memory_r8(&z80->MEM, z80->PC));
+	memory_w8(z80->MEM, z80->HL, memory_r8(z80->MEM, z80->PC));
 	z80->PC += 1;
 
 	z80->gClk += 12;
@@ -1024,7 +1024,7 @@ static void exec_0x39(processor * z80)
 static void exec_0x3A(processor * z80)
 {
 	/* LD A, (HL-) */
-	reg_loadH(&z80->AF, memory_r8(&z80->MEM, z80->HL));
+	reg_loadH(&z80->AF, memory_r8(z80->MEM, z80->HL));
 	z80->HL -= 1;
 
 	z80->gClk += 8;
@@ -1057,7 +1057,7 @@ static void exec_0x3D(processor * z80)
 static void exec_0x3E(processor * z80)
 {
 	/* LD A, d8 */
-	reg_loadH(&z80->AF, memory_r8(&z80->MEM, z80->PC));
+	reg_loadH(&z80->AF, memory_r8(z80->MEM, z80->PC));
 	z80->PC += 1;
 
 	z80->gClk += 8;
@@ -1124,7 +1124,7 @@ static void exec_0x45(processor * z80)
 static void exec_0x46(processor * z80)
 {
 	/* LD B, (HL) */
-	reg_loadH(&z80->BC, memory_r8(&z80->MEM, z80->HL));
+	reg_loadH(&z80->BC, memory_r8(z80->MEM, z80->HL));
 
 	z80->gClk += 8;
 }
@@ -1188,7 +1188,7 @@ static void exec_0x4D(processor * z80)
 static void exec_0x4E(processor * z80)
 {
 	/* LD C, (HL) */
-	reg_loadL(&z80->BC, memory_r8(&z80->MEM, z80->HL));
+	reg_loadL(&z80->BC, memory_r8(z80->MEM, z80->HL));
 
 	z80->gClk += 8;
 }
@@ -1252,7 +1252,7 @@ static void exec_0x55(processor * z80)
 static void exec_0x56(processor * z80)
 {
 	/* LD D, (HL) */
-	reg_loadH(&z80->DE, memory_r8(&z80->MEM, z80->HL));
+	reg_loadH(&z80->DE, memory_r8(z80->MEM, z80->HL));
 
 	z80->gClk += 8;
 }
@@ -1316,7 +1316,7 @@ static void exec_0x5D(processor * z80)
 static void exec_0x5E(processor * z80)
 {
 	/* LD E, (HL) */
-	reg_loadL(&z80->DE, memory_r8(&z80->MEM, z80->HL));
+	reg_loadL(&z80->DE, memory_r8(z80->MEM, z80->HL));
 
 	z80->gClk += 8;
 }
@@ -1380,7 +1380,7 @@ static void exec_0x65(processor * z80)
 static void exec_0x66(processor * z80)
 {
 	/* LD H, (HL) */
-	reg_loadH(&z80->HL, memory_r8(&z80->MEM, z80->HL));
+	reg_loadH(&z80->HL, memory_r8(z80->MEM, z80->HL));
 
 	z80->gClk += 8;
 }
@@ -1444,7 +1444,7 @@ static void exec_0x6D(processor * z80)
 static void exec_0x6E(processor * z80)
 {
 	/* LD L, (HL) */
-	reg_loadL(&z80->HL, memory_r8(&z80->MEM, z80->HL));
+	reg_loadL(&z80->HL, memory_r8(z80->MEM, z80->HL));
 
 	z80->gClk += 8;
 }
@@ -1460,7 +1460,7 @@ static void exec_0x6F(processor * z80)
 static void exec_0x70(processor * z80)
 {
 	/* LD (HL), B */
-	memory_w8(&z80->MEM, z80->HL, z80->BC >> 8);
+	memory_w8(z80->MEM, z80->HL, z80->BC >> 8);
 
 	z80->gClk += 8;
 }
@@ -1468,7 +1468,7 @@ static void exec_0x70(processor * z80)
 static void exec_0x71(processor * z80)
 {
 	/* LD (HL), C */
-	memory_w8(&z80->MEM, z80->HL, z80->BC & 0xFF);
+	memory_w8(z80->MEM, z80->HL, z80->BC & 0xFF);
 
 	z80->gClk += 8;
 }
@@ -1476,7 +1476,7 @@ static void exec_0x71(processor * z80)
 static void exec_0x72(processor * z80)
 {
 	/* LD (HL), D */
-	memory_w8(&z80->MEM, z80->HL, z80->DE >> 8);
+	memory_w8(z80->MEM, z80->HL, z80->DE >> 8);
 
 	z80->gClk += 8;
 }
@@ -1484,7 +1484,7 @@ static void exec_0x72(processor * z80)
 static void exec_0x73(processor * z80)
 {
 	/* LD (HL), E */
-	memory_w8(&z80->MEM, z80->HL, z80->DE & 0xFF);
+	memory_w8(z80->MEM, z80->HL, z80->DE & 0xFF);
 
 	z80->gClk += 8;
 }
@@ -1492,7 +1492,7 @@ static void exec_0x73(processor * z80)
 static void exec_0x74(processor * z80)
 {
 	/* LD (HL), H */
-	memory_w8(&z80->MEM, z80->HL, z80->HL >> 8);
+	memory_w8(z80->MEM, z80->HL, z80->HL >> 8);
 
 	z80->gClk += 8;
 }
@@ -1500,7 +1500,7 @@ static void exec_0x74(processor * z80)
 static void exec_0x75(processor * z80)
 {
 	/* LD (HL), L */
-	memory_w8(&z80->MEM, z80->HL, z80->HL & 0xFF);
+	memory_w8(z80->MEM, z80->HL, z80->HL & 0xFF);
 
 	z80->gClk += 8;
 }
@@ -1516,7 +1516,7 @@ static void exec_0x76(processor * z80)
 static void exec_0x77(processor * z80)
 {
 	/* LD (HL), A */
-	memory_w8(&z80->MEM, z80->HL, z80->AF >> 8);
+	memory_w8(z80->MEM, z80->HL, z80->AF >> 8);
 
 	z80->gClk += 8;
 }
@@ -1572,7 +1572,7 @@ static void exec_0x7D(processor * z80)
 static void exec_0x7E(processor * z80)
 {
 	/* LD A, (HL) */
-	reg_loadH(&z80->AF, memory_r8(&z80->MEM, z80->HL));
+	reg_loadH(&z80->AF, memory_r8(z80->MEM, z80->HL));
 
 	z80->gClk += 8;
 }
@@ -1636,7 +1636,7 @@ static void exec_0x85(processor * z80)
 static void exec_0x86(processor * z80)
 {
 	/* ADD A, (HL) */
-	exec_ADDH(z80, &z80->AF, memory_r8(&z80->MEM, z80->HL));
+	exec_ADDH(z80, &z80->AF, memory_r8(z80->MEM, z80->HL));
 
 	z80->gClk += 8;
 }
@@ -1700,7 +1700,7 @@ static void exec_0x8D(processor * z80)
 static void exec_0x8E(processor * z80)
 {
 	/* ADC A, (HL) */
-	exec_ADCH(z80, &z80->AF, memory_r8(&z80->MEM, z80->HL));
+	exec_ADCH(z80, &z80->AF, memory_r8(z80->MEM, z80->HL));
 
 	z80->gClk += 8;
 }
@@ -1764,7 +1764,7 @@ static void exec_0x95(processor * z80)
 static void exec_0x96(processor * z80)
 {
 	/* SUB A, (HL) */
-	exec_SUBH(z80, &z80->AF, memory_r8(&z80->MEM, z80->HL));
+	exec_SUBH(z80, &z80->AF, memory_r8(z80->MEM, z80->HL));
 
 	z80->gClk += 8;
 }
@@ -1828,7 +1828,7 @@ static void exec_0x9D(processor * z80)
 static void exec_0x9E(processor * z80)
 {
 	/* SBC A, (HL) */
-	exec_SBCH(z80, &z80->AF, memory_r8(&z80->MEM, z80->HL));
+	exec_SBCH(z80, &z80->AF, memory_r8(z80->MEM, z80->HL));
 
 	z80->gClk += 8;
 }
@@ -1892,7 +1892,7 @@ static void exec_0xA5(processor * z80)
 static void exec_0xA6(processor * z80)
 {
 	/* AND (HL) */
-	exec_ANDH(z80, &z80->AF, memory_r8(&z80->MEM, z80->HL));
+	exec_ANDH(z80, &z80->AF, memory_r8(z80->MEM, z80->HL));
 
 	z80->gClk += 8;
 }
@@ -1956,7 +1956,7 @@ static void exec_0xAD(processor * z80)
 static void exec_0xAE(processor * z80)
 {
 	/* XOR (HL) */
-	exec_XORH(z80, &z80->AF, memory_r8(&z80->MEM, z80->HL));
+	exec_XORH(z80, &z80->AF, memory_r8(z80->MEM, z80->HL));
 
 	z80->gClk += 8;
 }
@@ -2020,7 +2020,7 @@ static void exec_0xB5(processor * z80)
 static void exec_0xB6(processor * z80)
 {
 	/* OR (HL) */
-	exec_ORH(z80, &z80->AF, memory_r8(&z80->MEM, z80->HL));
+	exec_ORH(z80, &z80->AF, memory_r8(z80->MEM, z80->HL));
 
 	z80->gClk += 8;
 }
@@ -2084,7 +2084,7 @@ static void exec_0xBD(processor * z80)
 static void exec_0xBE(processor * z80)
 {
 	/* CP (HL) */
-	exec_CPH(z80, &z80->AF, memory_r8(&z80->MEM, z80->HL));
+	exec_CPH(z80, &z80->AF, memory_r8(z80->MEM, z80->HL));
 
 	z80->gClk += 8;
 }
@@ -2112,7 +2112,7 @@ static void exec_0xC0(processor * z80)
 static void exec_0xC1(processor * z80)
 {
 	/* POP BC */
-	reg_loadHL(&z80->BC, memory_r16(&z80->MEM, z80->SP));
+	reg_loadHL(&z80->BC, memory_r16(z80->MEM, z80->SP));
 	z80->SP += 2;
 
 	z80->gClk += 12;
@@ -2123,7 +2123,7 @@ static void exec_0xC2(processor * z80)
 	/* JP NZ, a16 */
 	if (!z80->Z)
 	{
-		z80->PC = memory_r16(&z80->MEM, z80->PC);
+		z80->PC = memory_r16(z80->MEM, z80->PC);
 		z80->gClk += 4;
 	}
 	else
@@ -2135,7 +2135,7 @@ static void exec_0xC2(processor * z80)
 static void exec_0xC3(processor * z80)
 {
 	/* JP a16 */
-	z80->PC = memory_r16(&z80->MEM, z80->PC);
+	z80->PC = memory_r16(z80->MEM, z80->PC);
 
 	z80->gClk += 16;
 }
@@ -2157,7 +2157,7 @@ static void exec_0xC4(processor * z80)
 static void exec_0xC5(processor * z80)
 {
 	/* PUSH BC */
-	memory_w16(&z80->MEM, z80->SP - 2, z80->BC);
+	memory_w16(z80->MEM, z80->SP - 2, z80->BC);
 	z80->SP -= 2;
 
 	z80->gClk += 16;
@@ -2166,7 +2166,7 @@ static void exec_0xC5(processor * z80)
 static void exec_0xC6(processor * z80)
 {
 	/* ADD A, d8 */
-	exec_ADDH(z80, &z80->AF, memory_r8(&z80->MEM, z80->PC));
+	exec_ADDH(z80, &z80->AF, memory_r8(z80->MEM, z80->PC));
 	z80->PC += 1;
 
 	z80->gClk += 8;
@@ -2175,7 +2175,7 @@ static void exec_0xC6(processor * z80)
 static void exec_0xC7(processor * z80)
 {
 	/* RST 00h */
-	memory_w16(&z80->MEM, z80->SP - 2, z80->PC);
+	memory_w16(z80->MEM, z80->SP - 2, z80->PC);
 	reg_loadHL(&z80->PC, 0x0000);
 	z80->SP -= 2;
 
@@ -2207,7 +2207,7 @@ static void exec_0xCA(processor * z80)
 	/* JP Z, a16 */
 	if (z80->Z)
 	{
-		z80->PC = memory_r16(&z80->MEM, z80->PC);
+		z80->PC = memory_r16(z80->MEM, z80->PC);
 		z80->gClk += 4;
 	}
 	else
@@ -2250,7 +2250,7 @@ static void exec_0xCD(processor * z80)
 static void exec_0xCE(processor * z80)
 {
 	/* ADC A, d8 */
-	exec_ADCH(z80, &z80->AF, memory_r8(&z80->MEM, z80->PC));
+	exec_ADCH(z80, &z80->AF, memory_r8(z80->MEM, z80->PC));
 	z80->PC += 1;
 
 	z80->gClk += 8;
@@ -2259,7 +2259,7 @@ static void exec_0xCE(processor * z80)
 static void exec_0xCF(processor * z80)
 {
 	/* RST 08h */
-	memory_w16(&z80->MEM, z80->SP - 2, z80->PC);
+	memory_w16(z80->MEM, z80->SP - 2, z80->PC);
 	reg_loadHL(&z80->PC, 0x0008);
 	z80->SP -= 2;
 
@@ -2281,7 +2281,7 @@ static void exec_0xD0(processor * z80)
 static void exec_0xD1(processor * z80)
 {
 	/* POP DE */
-	reg_loadHL(&z80->DE, memory_r16(&z80->MEM, z80->SP));
+	reg_loadHL(&z80->DE, memory_r16(z80->MEM, z80->SP));
 	z80->SP += 2;
 
 	z80->gClk += 12;
@@ -2292,7 +2292,7 @@ static void exec_0xD2(processor * z80)
 	/* JP NC, a16 */
 	if (!z80->C)
 	{
-		z80->PC = memory_r16(&z80->MEM, z80->PC);
+		z80->PC = memory_r16(z80->MEM, z80->PC);
 		z80->gClk += 4;
 	}
 	else
@@ -2318,7 +2318,7 @@ static void exec_0xD4(processor * z80)
 static void exec_0xD5(processor * z80)
 {
 	/* PUSH DE */
-	memory_w16(&z80->MEM, z80->SP - 2, z80->DE);
+	memory_w16(z80->MEM, z80->SP - 2, z80->DE);
 	z80->SP -= 2;
 
 	z80->gClk += 16;
@@ -2327,7 +2327,7 @@ static void exec_0xD5(processor * z80)
 static void exec_0xD6(processor * z80)
 {
 	/* SUB d8 */
-	exec_SUBH(z80, &z80->AF, memory_r8(&z80->MEM, z80->PC));
+	exec_SUBH(z80, &z80->AF, memory_r8(z80->MEM, z80->PC));
 	z80->PC += 1;
 
 	z80->gClk += 8;
@@ -2336,7 +2336,7 @@ static void exec_0xD6(processor * z80)
 static void exec_0xD7(processor * z80)
 {
 	/* RST 10h */
-	memory_w16(&z80->MEM, z80->SP - 2, z80->PC);
+	memory_w16(z80->MEM, z80->SP - 2, z80->PC);
 	reg_loadHL(&z80->PC, 0x0010);
 	z80->SP -= 2;
 
@@ -2369,7 +2369,7 @@ static void exec_0xDA(processor * z80)
 	/* JP C, a16 */
 	if (z80->C)
 	{
-		z80->PC = memory_r16(&z80->MEM, z80->PC);
+		z80->PC = memory_r16(z80->MEM, z80->PC);
 		z80->gClk += 4;
 	}
 	else
@@ -2395,7 +2395,7 @@ static void exec_0xDC(processor * z80)
 static void exec_0xDE(processor * z80)
 {
 	/* SBC A, d8 */
-	exec_SBCH(z80, &z80->AF, memory_r8(&z80->MEM, z80->PC));
+	exec_SBCH(z80, &z80->AF, memory_r8(z80->MEM, z80->PC));
 	z80->PC += 1;
 
 	z80->gClk += 8;
@@ -2404,7 +2404,7 @@ static void exec_0xDE(processor * z80)
 static void exec_0xDF(processor * z80)
 {
 	/* RST 18h */
-	memory_w16(&z80->MEM, z80->SP - 2, z80->PC);
+	memory_w16(z80->MEM, z80->SP - 2, z80->PC);
 	reg_loadHL(&z80->PC, 0x0018);
 	z80->SP -= 2;
 
@@ -2414,7 +2414,7 @@ static void exec_0xDF(processor * z80)
 static void exec_0xE0(processor * z80)
 {
 	/* LDH (a8), A */
-	memory_w8(&z80->MEM, 0xFF00 + memory_r8(&z80->MEM, z80->PC), z80->AF >> 8);
+	memory_w8(z80->MEM, 0xFF00 + memory_r8(z80->MEM, z80->PC), z80->AF >> 8);
 	z80->PC += 1;
 
 	z80->gClk += 12;
@@ -2423,7 +2423,7 @@ static void exec_0xE0(processor * z80)
 static void exec_0xE1(processor * z80)
 {
 	/* POP HL */
-	reg_loadHL(&z80->HL, memory_r16(&z80->MEM, z80->SP));
+	reg_loadHL(&z80->HL, memory_r16(z80->MEM, z80->SP));
 	z80->SP += 2;
 
 	z80->gClk += 12;
@@ -2432,7 +2432,7 @@ static void exec_0xE1(processor * z80)
 static void exec_0xE2(processor * z80)
 {
 	/* LD (C), A */
-	memory_w8(&z80->MEM, 0xFF00 + (z80->BC & 0xFF), z80->AF >> 8);
+	memory_w8(z80->MEM, 0xFF00 + (z80->BC & 0xFF), z80->AF >> 8);
 
 	z80->gClk += 8;
 }
@@ -2440,7 +2440,7 @@ static void exec_0xE2(processor * z80)
 static void exec_0xE5(processor * z80)
 {
 	/* PUSH HL */
-	memory_w16(&z80->MEM, z80->SP - 2, z80->HL);
+	memory_w16(z80->MEM, z80->SP - 2, z80->HL);
 	z80->SP -= 2;
 
 	z80->gClk += 16;
@@ -2449,7 +2449,7 @@ static void exec_0xE5(processor * z80)
 static void exec_0xE6(processor * z80)
 {
 	/* AND d8 */
-	exec_ANDH(z80, &z80->AF, memory_r8(&z80->MEM, z80->PC));
+	exec_ANDH(z80, &z80->AF, memory_r8(z80->MEM, z80->PC));
 	z80->PC += 1;
 
 	z80->gClk += 8;
@@ -2458,7 +2458,7 @@ static void exec_0xE6(processor * z80)
 static void exec_0xE7(processor * z80)
 {
 	/* RST 20h */
-	memory_w16(&z80->MEM, z80->SP - 2, z80->PC);
+	memory_w16(z80->MEM, z80->SP - 2, z80->PC);
 	reg_loadHL(&z80->PC, 0x0020);
 	z80->SP -= 2;
 
@@ -2468,7 +2468,7 @@ static void exec_0xE7(processor * z80)
 static void exec_0xE8(processor * z80)
 {
 	/* ADD SP, r8 */
-	exec_ADDHL(z80, &z80->SP, memory_r8(&z80->MEM, z80->PC));
+	exec_ADDHL(z80, &z80->SP, memory_r8(z80->MEM, z80->PC));
 	z80->PC += 1;
 
 	z80->gClk += 16;
@@ -2485,7 +2485,7 @@ static void exec_0xE9(processor * z80)
 static void exec_0xEA(processor * z80)
 {
 	/* LD (a16), A */
-	memory_w8(&z80->MEM, memory_r16(&z80->MEM, z80->PC), z80->AF >> 8);
+	memory_w8(z80->MEM, memory_r16(z80->MEM, z80->PC), z80->AF >> 8);
 	z80->PC += 2;
 
 	z80->gClk += 16;
@@ -2494,7 +2494,7 @@ static void exec_0xEA(processor * z80)
 static void exec_0xEE(processor * z80)
 {
 	/* XOR d8 */
-	exec_XORH(z80, &z80->AF, memory_r8(&z80->MEM, z80->PC));
+	exec_XORH(z80, &z80->AF, memory_r8(z80->MEM, z80->PC));
 	z80->PC += 1;
 
 	z80->gClk += 8;
@@ -2503,7 +2503,7 @@ static void exec_0xEE(processor * z80)
 static void exec_0xEF(processor * z80)
 {
 	/* RST 28h */
-	memory_w16(&z80->MEM, z80->SP - 2, z80->PC);
+	memory_w16(z80->MEM, z80->SP - 2, z80->PC);
 	reg_loadHL(&z80->PC, 0x0028);
 	z80->SP -= 2;
 
@@ -2513,10 +2513,10 @@ static void exec_0xEF(processor * z80)
 static void exec_0xF0(processor * z80)
 {
 	/* LDH A, (a8) */
-	byte a8 = memory_r8(&z80->MEM, z80->PC);
+	byte a8 = memory_r8(z80->MEM, z80->PC);
 	z80->PC += 1;
 
-	reg_loadH(&z80->AF, memory_r8(&z80->MEM, 0xFF00 + a8));
+	reg_loadH(&z80->AF, memory_r8(z80->MEM, 0xFF00 + a8));
 
 	z80->gClk += 12;
 }
@@ -2524,7 +2524,7 @@ static void exec_0xF0(processor * z80)
 static void exec_0xF1(processor * z80)
 {
 	/* POP AF */
-	reg_loadHL(&z80->AF, memory_r16(&z80->MEM, z80->SP));
+	reg_loadHL(&z80->AF, memory_r16(z80->MEM, z80->SP));
 	z80->SP += 2;
 
 	z80->Z = (z80->AF >> 7) & 0x01;
@@ -2538,7 +2538,7 @@ static void exec_0xF1(processor * z80)
 static void exec_0xF2(processor * z80)
 {
 	/* LD A, (C) */
-	reg_loadH(&z80->AF, memory_r8(&z80->MEM, 0xFF00 + (z80->BC & 0xFF)));
+	reg_loadH(&z80->AF, memory_r8(z80->MEM, 0xFF00 + (z80->BC & 0xFF)));
 
 	z80->gClk += 8;
 }
@@ -2556,7 +2556,7 @@ static void exec_0xF5(processor * z80)
 	/* PUSH AF */
 	z80->AF = (z80->AF & 0xFF00) | (z80->Z << 7) | (z80->N << 6) | (z80->H << 5) | (z80->C << 4);
 
-	memory_w16(&z80->MEM, z80->SP - 2, z80->AF);
+	memory_w16(z80->MEM, z80->SP - 2, z80->AF);
 	z80->SP -= 2;
 
 	z80->gClk += 16;
@@ -2565,7 +2565,7 @@ static void exec_0xF5(processor * z80)
 static void exec_0xF6(processor * z80)
 {
 	/* OR d8 */
-	exec_ORH(z80, &z80->AF, memory_r8(&z80->MEM, z80->PC));
+	exec_ORH(z80, &z80->AF, memory_r8(z80->MEM, z80->PC));
 	z80->PC += 1;
 
 	z80->gClk += 8;
@@ -2574,7 +2574,7 @@ static void exec_0xF6(processor * z80)
 static void exec_0xF7(processor * z80)
 {
 	/* RST 30h */
-	memory_w16(&z80->MEM, z80->SP - 2, z80->PC);
+	memory_w16(z80->MEM, z80->SP - 2, z80->PC);
 	reg_loadHL(&z80->PC, 0x0030);
 	z80->SP -= 2;
 
@@ -2584,7 +2584,7 @@ static void exec_0xF7(processor * z80)
 static void exec_0xF8(processor * z80)
 {
 	/* LD HL, SP+r8 */
-	byte d8 = memory_r8(&z80->MEM, z80->PC);
+	byte d8 = memory_r8(z80->MEM, z80->PC);
 	word addr = z80->SP + d8;
 	z80->PC += 1;
 
@@ -2593,7 +2593,7 @@ static void exec_0xF8(processor * z80)
 	z80->H = ((z80->SP ^ d8 ^ addr) & 0x10) == 0x10;
 	z80->C = ((z80->SP ^ d8 ^ addr) & 0x100) == 0x100;
 
-	reg_loadHL(&z80->HL, memory_r16(&z80->MEM, addr));
+	reg_loadHL(&z80->HL, memory_r16(z80->MEM, addr));
 
 	z80->gClk += 12;
 }
@@ -2609,10 +2609,10 @@ static void exec_0xF9(processor * z80)
 static void exec_0xFA(processor * z80)
 {
 	/* LD A, (a16) */
-	word a16 = memory_r16(&z80->MEM, z80->PC);
+	word a16 = memory_r16(z80->MEM, z80->PC);
 	z80->PC += 2;
 
-	reg_loadH(&z80->AF, memory_r8(&z80->MEM, a16));
+	reg_loadH(&z80->AF, memory_r8(z80->MEM, a16));
 
 	z80->gClk += 16;
 }
@@ -2628,7 +2628,7 @@ static void exec_0xFB(processor * z80)
 static void exec_0xFE(processor * z80)
 {
 	/* CP d8 */
-	exec_CPH(z80, &z80->AF, memory_r8(&z80->MEM, z80->PC));
+	exec_CPH(z80, &z80->AF, memory_r8(z80->MEM, z80->PC));
 	z80->PC += 1;
 
 	z80->gClk += 8;
@@ -2637,7 +2637,7 @@ static void exec_0xFE(processor * z80)
 static void exec_0xFF(processor * z80)
 {
 	/* RST 38h */
-	memory_w16(&z80->MEM, z80->SP - 2, z80->PC);
+	memory_w16(z80->MEM, z80->SP - 2, z80->PC);
 	reg_loadHL(&z80->PC, 0x0038);
 	z80->SP -= 2;
 

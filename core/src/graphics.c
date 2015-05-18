@@ -8,4 +8,7 @@
 
 #include "graphics.h"
 
-PPU ppu;
+
+void graphics_init(graphics * ppu)
+{
+}

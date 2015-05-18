@@ -14,7 +14,7 @@
 #include "cartridge.h"
 
 typedef struct {
-	memory MEM;                  ///< 64K memory map
+	memory * MEM;                ///< 64K memory map
 
     r16 AF, BC, DE, HL, SP, PC;  ///< 16-bit registers
 	bit Z, N, H, C;              ///< flag bits

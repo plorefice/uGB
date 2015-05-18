@@ -13,8 +13,9 @@
 
 typedef struct {
 	byte VRAM[0x2000];
-} PPU;
+} graphics;
 
-extern PPU ppu;
+
+void graphics_init(graphics * ppu);
 
 #endif /* _CORE__GRAPHICS_H_ */

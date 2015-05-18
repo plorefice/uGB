@@ -8,11 +8,14 @@
 
 #include "processor.h"
 #include "cartridge.h"
+#include "graphics.h"
 
 #include <stdio.h>
 #include <sys/stat.h>
 
 processor z80;
+memory mem;
+graphics ppu;
 cartridge cart;
 
 int main(int argc, char * argv[])
@@ -24,14 +27,19 @@ int main(int argc, char * argv[])
 	byte cart_content[0x4000];
 
 	proc_init(&z80);
-	cart_init(&cart);
+    memory_init(&mem);
+    graphics_init(&ppu);
+    cart_init(&cart);
+    
+    z80.MEM = &mem;
+    mem.VRAM = &ppu.VRAM[0];
 
 	/* load cart */
 	proc_load_cart(&z80, &cart);
 
 	/* load rom */
-	fopen_s(&f, "cpu_instrs.gb", "rb");
-	fstat(_fileno(f), &fs);
+	f = fopen("cpu_instrs.gb", "rb");
+	fstat(fileno(f), &fs);
 	fsize = fs.st_size;
 
 	while (fsize > 0)

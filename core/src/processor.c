@@ -15,8 +15,6 @@
 void
 proc_init(processor * z80)
 {
-	memory_init(&z80->MEM);
-
 	z80->hWFI = 0;
 	z80->IRQE = 0;
 	z80->gClk = 0;
@@ -30,7 +28,7 @@ proc_fetch(processor * z80)
 	if (!z80->hWFI)
 	{
 		r16 prevPC = z80->PC;
-		opcode opc = memory_r8(&z80->MEM, z80->PC++);
+		opcode opc = memory_r8(z80->MEM, z80->PC++);
 		r16 afterPC = z80->PC;
 
 		printf("%s\n", opcode_name(opc));
@@ -38,15 +36,15 @@ proc_fetch(processor * z80)
 		dispatch[opc](z80);
 
 		if (prevPC == 0xFE && afterPC == 0xFF)
-			z80->MEM.booting = false;
+			z80->MEM->booting = false;
 	}
 }
 
 void
 proc_load_cart(processor * z80, cartridge * cart)
 {
-	z80->MEM.ROM_BNK_00 = &cart->ROM_BNK_00[0];
-	z80->MEM.ROM_BNK_NN = &cart->ROM_BNK_01[0];
+	z80->MEM->ROM_BNK_00 = &cart->ROM_BNK_00[0];
+	z80->MEM->ROM_BNK_NN = &cart->ROM_BNK_01[0];
 }
 
 void 

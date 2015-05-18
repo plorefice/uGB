@@ -35,8 +35,6 @@ static byte memory_read(memory * mem, word addr);
 void 
 memory_init(memory * mem)
 {
-	mem->VRAM = ppu.VRAM;
-
 	mem->booting = true;
 }
 
